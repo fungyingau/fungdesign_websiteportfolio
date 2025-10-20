@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../css/styles.css">
+    <link rel="stylesheet" href="./../css/modern-reset.css">
+    <link rel="icon" href="./../img/fd_logo_favicon.ico">
+    <title>Neem contact op | Fung Design</title>
+</head>
+<body>
+    <header class="header">
+        <div class="background"></div>
+        <!-- logo -->
+        <div class="logo">
+            <a href="./../index.html" class="logo" title="Fung Design"><img class="logo2" src="./../img/fd_logo_round_background.svg" alt="fd logo"></a>
+            <span class="logoT">fungdesign</span>
+        </div>
+        <!-- Hamburger icon -->
+        <input class="side-menu" type="checkbox" id="side-menu">
+        <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+        <!-- Menu -->
+        <nav class="nav">
+            <ul class="menu">
+                <li><a href="./../index.html">home</a></li>
+                <li><span></span></li>
+                <li><a href="./projecten.html">projecten</a></li>
+                <li><span></span></li>
+                <li class="active"><a href="#">contact</a></li>   
+            </ul>
+        </nav>
+    </header>
+    <main class="contact">
+        <article class="contact">
+            <div class="breadcrumbs">
+                <a href="./../index.html">home </a> &gt; <span> contact</span>
+            </div>
+            <div class="containerContact">
+                <h1>Bedankt voor je interesse!</h1>
+                <p>Wil je meer weten of ben je benieuwd naar wat ik voor je kan betekenen?<br>Neem contact met mij op. Ik kijk ernaar uit om van je te horen.</p>
+                <form action="mailto:fungying@dds.nl"  method="post" enctype="text/plain">
+                    <label for="naam">Naam:</label>
+                    <input class="veld" type="text" id="naam" name="naam" required placeholder="naam"><span class="error" id="naam_error">ongeldige naam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <label for="email">E-mail:</label>
+                    <input class="veld" type="email" id="email" name="email" required placeholder="e-mail"><span id="email_error" class="error">ongeldige e-mail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <label for="bericht">Bericht:</label>
+                    <textarea class="veld" id="bericht" name="bericht" required rows="8" cols="40" maxlength="400" placeholder="bericht (max. 400 karakters)"></textarea><span id="bericht_error" class="error">vul bericht in&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <!-- <input type="submit" value="verstuur"> -->
+                    <input type="button" class="button" name="verstuur" id="verstuur" value="Verstuur">
+                </form>
+                <div id="overlay" class="hidden"></div>
+                <div id="success_message">
+                    <p>Verzend de e-mail.<br>We nemen zo snel mogelijk contact met je op.</p>
+                    <button id="close">Sluit</button>
+                </div>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <a href="/"><img class="logo2" src="./../img/fd_logo_round_background.svg" alt="fd logo" title="home"></a>
+        <ul id="footerSocMed">
+            <li><a href="mailto:info@fungdesign.nl" target="_blank"><i class="fa-solid fa-envelope" title="e-mail"></i></a></li>
+            <li><a href="whatsapp://send?phone=+31649606083" target="_blank"><i class="fa-brands fa-whatsapp" title="whatsapp"></i></a></li>
+            <li><a href="tel:+31649606083" target="_blank"><i class="fa-solid fa-phone" title="phone"></i></a></li>
+        </ul>
+        <p>FungDesign &copy;2025</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="./../js/main.js"></script>    
+</body>
+</html>

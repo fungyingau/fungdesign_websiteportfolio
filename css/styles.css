@@ -1,0 +1,903 @@
+@import url(modern-reset.css);
+
+/* fontAwesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css');
+
+/* Philisopher */
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+/* variables */
+:root{
+    --white: #f9f9f9;
+    --black: #333333;
+    --yellow: #C6A65C;
+    --brown: #8a6c46;
+    --gray: #d9d9d9;
+    --browngray: #c8b8a4;
+} 
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    background-color: var(--white);
+    font-size: 1rem;
+}
+
+h1, h2, h3 {
+    font-family: "Philosopher", sans-serif;
+    color: var(--black);
+}
+
+p {
+    color: var(--black);
+}
+
+/* ---------- header ---------- */
+.header {
+    position: relative;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--browngray);/* fallback */
+    z-index: 1;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(var(--browngray), var(--white));
+    z-index: 0;
+    opacity: 0;
+    
+}
+
+
+div.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 2em;
+}
+
+div.logo img {
+    margin: auto 0.8em auto auto;
+    width: 3.6em;
+    height: 3.6em;
+}
+
+.logo span {
+    font-size: 1.4em;
+    font-family: "Philosopher", sans-serif;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+/* Nav menu */
+.nav {
+    width: 100%;
+    height: 210px;
+    position: absolute;
+    background-color: rgb(249, 249, 249, 0.8);
+    overflow: hidden;
+    top: 5em;
+    max-height: 0; /* ingeklapt */
+    transition: max-height .5s ease-out;
+    z-index: 10;
+}
+
+
+.menu a {
+    position: relative;
+    display: block;
+    padding: 1.42em;
+    font-size: 1em;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--black);
+    border-top: var(--black) solid 1px;
+    opacity: 100%;
+
+}
+
+.menu a:hover, li.active a{
+    color: var(--yellow);
+    transition: 250ms ease-in-out;
+}
+
+/* Menu Icon */
+.hamb{
+    cursor: pointer;
+    margin-right: 1.2em;
+    padding: 32px 20px;
+}
+
+.hamb-line {
+    background: var(--black);
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;
+} 
+
+.hamb-line::before,
+.hamb-line::after{
+    background: var(--black);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .3s ease-out;
+    width: 100%;
+}
+.hamb-line::before{
+    top: 8px;
+}
+.hamb-line::after{
+    top: -8px;
+}
+
+/* Hide checkbox */
+.side-menu {
+    display: none;
+}
+
+/* Toggle menu icon */
+.side-menu:checked ~ nav{
+    max-height: 400%;
+}
+.side-menu:checked ~ .hamb .hamb-line {
+    background: transparent;
+}
+.side-menu:checked ~ .hamb .hamb-line::before {
+    transform: rotate(-45deg);
+    top:0;
+}
+.side-menu:checked ~ .hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top:0;
+}
+
+main {
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- home --- */
+main.home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    background-image: url(../img/bg_home_mob.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 2em 1.25em 3em 1.25em;
+}
+
+.portret {
+    position: relative;
+    width: 10em;
+    height: 10em;
+    border-radius: 5em;
+    border: var(--yellow) solid 1px;
+    margin: 0.5em auto 1.4em auto;
+    background-image: url(../img/portret_fung3_s.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 38%;
+    background-size: cover;
+}
+
+.containerOvermij, .containerProjecten, .containerContact, .containerProject {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: rgb(249, 249, 249, 0.5);
+    padding: 1em 1.3em 1.6em 1.3em;
+    border-radius: 1em;
+    border: solid 1px var(--brown);
+}
+
+.containerOvermij p {
+    font-weight: 500;
+}
+
+a.cta, input.button{
+    display: block;
+    color:var(--white);
+    background-color: var(--yellow);
+    border-radius: 1.25em;
+    padding: 0.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.25em;
+    box-shadow: -1px 2px 6px rgba(0,0,0, 0.75);
+    width: 70vw;
+    text-align: center;
+    align-self: center;
+    margin: 0.5em;
+}
+
+a.cta:hover, .projButton:hover, input.button:hover {
+    background-color: var(--brown);
+    transition: 0.3s ease-in;
+}
+
+a.cta:active, .projectContainer:active, input.button:active {
+    box-shadow: -1px 2px 6px rgba(0,0,0, 0.2);
+    transition: 0.2s ease-in;
+
+}
+
+/* --- projecten --- */
+main.projecten::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    background-image: url(../img/bg_projects_mob.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 0%;
+    background-size: 120%;
+    background-attachment: fixed;
+    z-index: -2;
+}
+
+.breadcrumbs {
+    position: relative;
+    margin:  0.25em 0;
+    color: var(--brown);
+}
+
+.breadcrumbs a:hover {
+    color: var(--yellow);
+    transition: 0.2s ease-in;
+}
+
+.containerProjecten h1, .containterContact h1 {
+    font-size: 1.5em;
+    font-weight: 700;
+    text-align: center;
+    margin: 0.7em 0.5em;   
+}
+
+.projectenGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2em;
+}
+
+.projectContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: -1px 2px 6px rgba(0,0,0, 0.75);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 3px;
+    border: solid 1.4px var(--yellow);
+    aspect-ratio: 16 / 12;
+}
+
+.projButton, .button {
+    width: 100%;
+    display: block;
+    color:var(--white);
+    background-color: var(--yellow);
+    padding: 0.35em;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.25em;
+    text-align: center;
+    align-self: center;
+    margin-top: 40%;
+}
+
+.projectContainer:hover {
+    filter: grayscale(100%);
+    transition: 0.3s ease-in;
+}
+
+.containerKarinbaddane {
+    background-image: url(../img/scherm_karinbaddane.jpg);
+}
+
+.containerWebshopAromalogic {
+    background-image: url(../img/scherm_webshopAromalogic.jpg);  
+}
+
+.containerCuisine {
+    background-image: url(../img/scherm_cuisine.jpg);  
+}
+
+.containerFilmfront {
+    background-image: url(../img/scherm_filmfront.jpg);  
+}
+
+.containerWonderen {
+    background-image: url(../img/scherm_wonder.jpg);  
+}
+
+.containerBakery {
+    background-image: url(../img/scherm_bakery.jpg);  
+}
+
+.containerOppenheimer {
+    background-image: url(../img/scherm_oppenheimer.jpg);  
+}
+
+.containerAsrock {
+    background-image: url(../img/scherm_asrock.jpg);  
+}
+
+.containerAromalogic {
+    background-image: url(../img/scherm_aromalogic.jpg);  
+}
+
+.containerTranquilescape {
+    background-image: url(../img/scherm_tranquilescape.jpg);  
+}
+
+.containerMatchamoment {
+    background-image: url(../img/scherm_matchamoment.jpg);  
+}
+
+a.scrollToTop {
+    color: var(--yellow);
+    font-size: 2.6em;
+    margin: 0 auto;   
+}
+
+.containerProjecten a.cta {
+    margin: 2em auto 1em auto;
+    max-width: 30em;
+}
+
+/* --- contact --- */
+main.contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    background-image: url(../img/bg_contact.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 0.6em;
+}
+
+label {
+    font-weight: 500;
+    margin: 0.5em 0;
+}
+
+span.error {		
+    background-image: url(./../img/logo_error.svg);
+    display: none;
+    background-repeat: no-repeat;
+    background-position: 100% 0%;
+    align-self: end;
+    margin: -2.25em 0.7em 0.75em 0;
+    text-align: end;
+    color: red;
+}
+
+input.veld, textarea.veld {
+    padding: 0.25em 0.75em;
+    border: var(--browngray) solid 1px;
+    border-radius: 0.3em;
+    margin-bottom: 0.5em;
+}
+
+input.button {
+    border: none;
+}
+
+/* message */
+.hidden {
+    display: none;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Zorg voor een half doorzichtige overlay */
+    z-index: 999; /* Zorg ervoor dat de overlay boven andere elementen ligt */
+}
+/* boodschap popup na verstuur */
+#success_message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid var(--brown);
+    border-radius: 1em;
+    margin-top: 10px;
+    z-index: 1000;
+}
+
+#success_message p {
+    margin: 0 0 0.5em 0;
+}
+
+#success_message button {
+    float: right;
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--gray);
+}
+
+/* --- project --- */
+main.project::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    background-image: url(../img/bg_proj.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.containerProject {
+    padding: 0.5em 2em 2em 2em;
+}
+.containerProject ul {
+    list-style: disc;
+    margin-left: 1.5em;
+}
+
+.projectImg:hover {
+    transform: scale(1.05);
+    transition: 0.3s ease-in;
+}
+
+.projectButtons {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- footer --- */
+footer {
+    display: flex;
+    background-color: var(--black);
+    flex-direction: column;
+    align-items: center;
+}
+
+i.fa-brands.fa-whatsapp::before {
+    font-size: 1.02em; 
+    padding: 0.02em 0.25em 0 0.05em;
+} 
+
+img.logo2 {
+    width: 2.8em;
+    height: 2.8em;
+    margin: 1.25em auto 0.5em auto;
+}
+
+footer p {
+    color: var(--white);
+    font-weight: 400;
+    font-size: 0.7em;
+    margin: 0.2em auto;
+}
+
+footer ul{
+    display: flex;
+}
+
+footer ul i {
+    font-size: 1.2em; 
+    width: 1.5em;
+    color: var(--black);
+    font-family: 'FontAwesome';
+    border-radius: 50%;
+    margin: 0.4em;
+    padding: 0.25em;
+    background-color: var(--white);
+}
+
+/* --- 404 --- */
+body.error {
+    background-color: var(--gray);
+}
+
+.errorContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.errorContainer img {
+    width: 100%;
+    margin: 0 auto 1.4em auto;
+}
+
+.errorContainer h1 {
+    font-size: 2em;
+    font-weight: 700;
+    text-align: center;
+    margin: 0.5em;
+}
+.errorContainer p {
+    font-weight: 500;
+    padding: 0.5em;
+    font-size: 1.2em;
+    text-align: center;
+} 
+.errorContainer a {
+    margin: 0 auto;
+    max-width: 420px;
+}
+/* ======================================================= */
+/* ==================== Tablet Styles ==================== */
+/* ======================================================= */
+@media screen and (min-width:768px) {
+    main.home::before {
+        background-image: url(../img/bg_home.jpg);
+        background-position: 100% 0%;
+        background-size: 180%;
+    }
+
+    .hamb{
+        display: none;
+    }
+    .nav{
+        max-height: none;
+        top: 0;
+        position: relative;
+        width: fit-content;
+        background-color: transparent;
+        height: 5em;
+        margin-right: 2em;
+        display: flex;
+        align-items: center;
+    }
+
+    ul.menu {
+        display: flex;
+        align-items: center;
+    }
+
+    .menu a {
+        border-top: none;
+        padding: 1.35em;
+    }
+
+    li span {
+        display: block;
+        width: 0.4em;
+        height: 0.4em;
+        background-color: var(--black);
+        border-radius: 50%;
+    }
+    /* --- home --- */
+    .portret {
+        margin: 1.1em auto 2.8em auto;
+    }
+
+    .containerOvermij {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto auto auto auto;
+        padding: 2em 3em 3em 3em;
+    }
+
+    .containerOvermij h1 {
+        grid-area: 1/1/2/4;
+    }
+
+    .containerOvermij p:first-of-type {
+        grid-area: 2/1/3/4;   
+    }
+    .containerOvermij p:nth-of-type(2) {
+        grid-area: 3/1/4/4;   
+    }
+
+    .containerOvermij p:nth-of-type(3) {
+        grid-area: 4/1/5/3;     
+    }
+
+    .containerOvermij p:nth-of-type(4) {
+        grid-area: 5/1/6/3;    
+    }
+
+    .containerOvermij .cta:first-of-type {
+        grid-area: 4/3/5/4;
+        width: 30vw;
+    }
+
+    .containerOvermij .cta:nth-of-type(2) {
+        grid-area: 5/3/6/4;
+        width: 30vw;
+    }
+
+    article {
+        margin: 2em 3.875em 2em 3.875em;
+    }
+
+    /* --- projecten --- */
+    main.projecten::before {
+        background-image: url(../img/bg_projects.jpg);
+        background-position: 15% 15%;
+        background-size: 114%;
+    }
+    
+    .containerProjecten {
+        padding: 1em 3.2em 2em 3.2em;
+    }
+
+    .projectenGrid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2em;
+    }
+
+    .projButton {
+        margin-top: 40%;
+    }
+
+    article.contact {
+        max-width: 48em;
+        margin: 2em auto;
+    }
+
+    input.button, .containerProjecten a.cta {
+        width: 50%;
+    }
+
+    .containerProjecten a.cta {
+        margin: 1.8em auto 0.5em auto;
+    }
+
+    a.scrollToTop {
+        display: none;
+    }
+
+    /* --- contact --- */ 
+    .containerContact {
+        padding: 2em 3em;
+    }
+    
+    /* --- project --- */
+    main.project::before {
+        background-position: 50% 25%;
+        background-size: cover;
+    }
+
+    .containerProject {
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+        grid-template-rows: auto auto;
+        column-gap: 1em;
+    }
+
+    .containerProject h1, .containerProjecten h1 {
+        grid-area: 1/1/2/3;
+        margin: 1.2em auto 1em auto;
+        text-align: center;
+        align-self: center;
+        font-size: 1.7em;
+    }
+
+    .containerProject .columnLeft {
+        grid-area: 2/1/3/2;
+    }
+
+    .containerProject .columnRight {
+        grid-area: 2/2/3/3;
+    }
+    
+
+    .projectButtons .cta {
+        width: 90%;
+    }
+    /* --- footer --- */
+    footer {
+        height: 5.625em;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 3fr 1fr;
+    }
+
+    footer a {
+        grid-area: 1/1/3/2;
+    }
+
+    footer ul {
+        grid-area: 1/3/3/4;
+        margin-right: 2em;
+        justify-content: flex-end;
+    }
+
+    footer p {
+        grid-area: 2/2/3/3; 
+    }
+
+    img.logo2 {
+        margin: auto 0 auto 2em;
+    }
+}
+
+/* ======================================================= */
+/* ==================== Desktop Styles =================== */
+/* ======================================================= */
+@media screen and (min-width:1280px) {
+    .header {
+        height: 216px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .nav{
+        height: 5em;
+        margin: 0;
+    }
+
+    ul.menu {
+        width: 75vw;
+        justify-content: space-between;
+    }
+
+    .menu a {
+        width: 9em;
+        text-align: center;
+        font-size: 1.25em;
+    } 
+    
+    div.logo {
+        flex-direction: column;
+        height: 12em;
+        padding-top: 1.2em;
+        margin: 0;
+        justify-content: space-evenly;
+    }
+    
+    div.logo a {
+        order: 2;
+    }
+    div.logo span {
+        order: 1;
+    }
+    div.logo img {
+        width: 100px;
+        height: 100px;
+        margin: 0;
+    }
+    main.home::before {
+        background-position: 100% 5%;
+        background-size: cover;
+    }
+    .overmij {
+        flex-direction: row;
+        align-items: center;
+        margin: 4% 2em;
+    }
+    .containerOvermij {
+        order: 1;
+        width: 65vw;
+        row-gap: 0.5em;
+        margin-left: 2em;
+    }
+    
+    .portret {
+        order: 2;
+        width: 18em;
+        height: 18em;
+        border-radius: 50%;
+    }
+
+    .containerOvermij .cta:first-of-type, .containerOvermij .cta:nth-of-type(2) {
+        width: 20vw;
+    }
+
+    /* --- projecten --- */
+    .projectenGrid {
+        gap: 2.4em;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    /* --- contact --- */
+    article.contact {
+        max-width: 68em;
+        margin: 2em auto;
+    }
+    .containerContact {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 6fr;
+        column-gap: 2em;
+    }
+    .containerContact h1 {
+        grid-area: 1/1/2/2;
+    }
+    .containerContact p {
+        grid-area: 2/1/3/2;   
+    }
+    .containerContact form {
+        grid-area: 2/2/3/3;
+    }
+
+    /* --- project --- */
+    .containerProject {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: auto auto;
+        padding: 1em 3em 3em 3em;  
+    }
+
+    .projectButtons {
+        display: flex;
+        flex-direction: row;
+        flex-wrap:nowrap;
+        width: 100%;
+    }
+    .projectButtons .cta {
+        font-size: 1em;
+        width: 45%;
+    }
+
+    /* --- footer --- */
+    footer {
+        height: 7.2em;
+    }
+
+    img.logo2 {
+        width: 4em;
+        height: 4em;
+    }
+}
